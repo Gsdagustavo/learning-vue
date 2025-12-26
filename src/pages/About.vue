@@ -4,7 +4,7 @@ import Card from '@/components/Card.vue'
 
 <template class="template">
   <div class="container">
-    <Card direction="row" gap="50px" justify-content="space-between" margin-top="50px">
+    <Card justify-content="space-between" margin-top="50px">
       <div class="description">
         <h1>Sobre nós</h1>
         <p>

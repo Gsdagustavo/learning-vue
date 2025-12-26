@@ -1,27 +1,39 @@
 <script lang="ts" setup>
-import router, { routes } from '@/config/navigation.ts'
+import { RouterLink, useRoute } from 'vue-router'
+import { RouteDefs, routes } from '@/config/navigation.ts'
+
+const route = useRoute()
 </script>
 
 <template>
   <header>
-    <div class="logo">
+    <RouterLink :to="RouteDefs.Home" class="logo">
       <div class="icon-logo">
         <img alt="Logo" src="/favicon.png" />
       </div>
       <p>Cachacaria Wilbert</p>
-    </div>
+    </RouterLink>
 
     <div class="items">
-      <div v-for="item in routes" :key="item.path" class="item" @click="router.push(item.path)">
+      <RouterLink
+        v-for="item in routes"
+        :key="item.path"
+        :to="item.path"
+        active-class="active"
+        class="item"
+      >
         {{ item.name }}
-      </div>
+      </RouterLink>
     </div>
   </header>
 </template>
 
 <style scoped>
 header {
-  background: rgb(78, 46, 27);
+  --accent-hover: rgb(194, 166, 117);
+  --header-color: rgb(78, 46, 27);
+
+  background: var(--header-color);
   padding: 6px;
   padding-left: 20px;
   padding-right: 20px;
@@ -45,6 +57,26 @@ header p {
   cursor: pointer;
 }
 
+.logo p {
+  cursor: pointer;
+  transition:
+    color 0.25s,
+    font-size 0.25s;
+}
+
+.logo p:hover {
+  color: var(--accent-hover);
+  font-size: calc(100% + 4px);
+}
+
+.icon-logo {
+  transition: scale 0.25s;
+}
+
+.icon-logo:hover {
+  scale: 1.1;
+}
+
 .items {
   display: flex;
   flex-direction: row;
@@ -60,8 +92,9 @@ header p {
     font-size 0.25s;
 }
 
-.item:hover {
-  color: rgb(194, 166, 117);
-  font-size: 110%;
+.item:hover,
+.item.active {
+  color: var(--accent-hover);
+  font-size: calc(100% + 2px);
 }
 </style>

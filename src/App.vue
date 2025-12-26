@@ -14,6 +14,7 @@ import Header from '@/components/Header.vue'
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
   font:
     normal 1rem 'JetBrains Mono Regular',
     monospace;

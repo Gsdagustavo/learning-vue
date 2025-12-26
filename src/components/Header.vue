@@ -1,8 +1,6 @@
 <script lang="ts" setup>
-import { RouterLink, useRoute } from 'vue-router'
+import { RouterLink } from 'vue-router'
 import { RouteDefs, routes } from '@/config/navigation.ts'
-
-const route = useRoute()
 </script>
 
 <template>
@@ -30,10 +28,7 @@ const route = useRoute()
 
 <style scoped>
 header {
-  --accent-hover: rgb(194, 166, 117);
-  --header-color: rgb(78, 46, 27);
-
-  background: var(--header-color);
+  background: var(--primary-color);
   padding: 6px;
   padding-left: 20px;
   padding-right: 20px;
